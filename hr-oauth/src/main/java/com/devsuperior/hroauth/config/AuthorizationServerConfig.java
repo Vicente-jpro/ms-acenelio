@@ -1,5 +1,6 @@
 package com.devsuperior.hroauth.config;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
@@ -40,6 +41,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 		security.tokenKeyAccess("permitAll()").checkTokenAccess("isAuthenticated()");
 	}
 
+	// Autenticacao da aplicacao
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 		clients.inMemory()
@@ -47,7 +49,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 		.secret(passwordEncoder.encode(clientSecret))
 		.scopes("read", "write")
 		.authorizedGrantTypes("password")
-		.accessTokenValiditySeconds(86400);
+		// duracao_de_24_horas = dia * hora * minuto * segundo = 24 * 60 * 60
+		.accessTokenValiditySeconds(86400);  
 	}
 
 	@Override
