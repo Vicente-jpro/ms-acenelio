@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
-@RefreshScope
+@RefreshScope /*Atualizar os valores das variaveis em tempo de execucao*/
 @Configuration
 public class AppConfig {
 
